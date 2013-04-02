@@ -16,6 +16,12 @@
 	margin-right: auto;
 }
 
+#subheader {
+	width:320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #estimate-header {
 	width:260px;
 	margin-left: auto;
@@ -24,6 +30,11 @@
 
 #loading {
 	background-image: url('../loading.gif');
+	background-repeat: no-repeat;
+	width: 250px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .pricing-table * {
@@ -33,7 +44,7 @@
 .popover-content {
 	font-size: 1em;
 	line-height: 1.1;
-	width: 250px;
+	width: 280px;
 }
 
 .pricing-table .bullet-item {

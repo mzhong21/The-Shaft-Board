@@ -7,222 +7,228 @@ $(function() {
 	getWhiteboardCounts('https://spreadsheets.google.com/feeds/cells/0AgQ9wxO1Q6RPdDRHU3FuaVA0dVY2UkswUWdPWlRvSnc/od6/public/basic?alt=rss');
 	
 	//gets the remaining rooms
-	var options = getRemainingRooms('https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDlVM1Qxamt0SHI0YktzNWZmdTFOdWc/od7/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDl0dnNJVjFndkJNdW5GSVBoYWhQN1E/od6/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdEl4MFo0dnlWajhUYjVfMkVuaTBXUXc/od6/public/basic?alt=rss')
+	var options = getRemainingRooms('https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDlVM1Qxamt0SHI0YktzNWZmdTFOdWc/od7/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDl0dnNJVjFndkJNdW5GSVBoYWhQN1E/od6/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdEl4MFo0dnlWajhUYjVfMkVuaTBXUXc/od6/public/basic?alt=rss');
+	//hide loading icon
+	$("#loading").css("display", "none");
+	
 	
 	//loads all the remaining room data
-	var popoverTitle = 'Remaining Options';
-	var popoverPlacement = 'top';
+	loadPopovers(options);
 
-	$('#broadway2').popover({
-	  content: options['broadway2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ecdouble').popover({
-	  content: options['ecdouble'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ecflat').popover({
-	  content: options['ecflat'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec4').popover({
-	  content: options['ec4'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec5').popover({
-	  content: options['ec5'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ecx').popover({
-	  content: options['ecx'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec6town').popover({
-	  content: options['ec6town'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec6high').popover({
-	  content: options['ec6high'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec6ra').popover({
-	  content: options['ec6ra'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ec4ra').popover({
-	  content: options['ec4ra'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ectowndouble').popover({
-	  content: options['ectowndouble'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#claremont3').popover({
-	  content: options['claremont3'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#claremont4').popover({
-	  content: options['claremont4'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#claremont5').popover({
-	  content: options['claremont5'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#claremont6').popover({
-	  content: options['claremont6'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#claremont7').popover({
-	  content: options['claremont7'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#furnald2').popover({
-	  content: options['furnald2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#hogan4').popover({
-	  content: options['hogan4'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#hogan5').popover({
-	  content: options['hogan5'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#hogan6').popover({
-	  content: options['hogan6'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#hogan4ra').popover({
-	  content: options['hogan4ra'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#nussbaum2').popover({
-	  content: options['nussbaum2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#nussbaum2bath').popover({
-	  content: options['nussbaum2bath'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#symposium2').popover({
-	  content: options['symposium2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#schapiro2').popover({
-	  content: options['schapiro2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#schapiro2w').popover({
-	  content: options['schapiro2w'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#harmony2').popover({
-	  content: options['harmony2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#mcbain2').popover({
-	  content: options['mcbain2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ruggles4').popover({
-	  content: options['ruggles4'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ruggles6').popover({
-	  content: options['ruggles6'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ruggles8a').popover({
-	  content: options['ruggles8a'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ruggles8b').popover({
-	  content: options['ruggles8b'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#ruggles4ra').popover({
-	  content: options['ruggles4ra'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#wattstudio').popover({
-	  content: options['wattstudio'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#watt1').popover({
-	  content: options['watt1'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#watt2').popover({
-	  content: options['watt2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#wien2').popover({
-	  content: options['wien2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#wien2w').popover({
-	  content: options['wien2w'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#woodbridge2').popover({
-	  content: options['woodbridge2'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#woodbridgehigh').popover({
-	  content: options['woodbridgehigh'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#woodbridgemedium').popover({
-	  content: options['woodbridgemedium'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#woodbridgelow').popover({
-	  content: options['woodbridgelow'],
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
+	function loadPopovers(options) {
+		var popoverTitle = 'Remaining Options';
+		var popoverPlacement = 'top';
+		$('#broadway2').popover({
+		  content: options['broadway2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ecdouble').popover({
+		  content: options['ecdouble'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ecflat').popover({
+		  content: options['ecflat'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec4').popover({
+		  content: options['ec4'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec5').popover({
+		  content: options['ec5'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ecx').popover({
+		  content: options['ecx'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec6town').popover({
+		  content: options['ec6town'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec6high').popover({
+		  content: options['ec6high'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec6ra').popover({
+		  content: options['ec6ra'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ec4ra').popover({
+		  content: options['ec4ra'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ectowndouble').popover({
+		  content: options['ectowndouble'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#claremont3').popover({
+		  content: options['claremont3'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#claremont4').popover({
+		  content: options['claremont4'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#claremont5').popover({
+		  content: options['claremont5'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#claremont6').popover({
+		  content: options['claremont6'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#claremont7').popover({
+		  content: options['claremont7'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#furnald2').popover({
+		  content: options['furnald2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#hogan4').popover({
+		  content: options['hogan4'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#hogan5').popover({
+		  content: options['hogan5'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#hogan6').popover({
+		  content: options['hogan6'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#hogan4ra').popover({
+		  content: options['hogan4ra'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#nussbaum2').popover({
+		  content: options['nussbaum2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#nussbaum2bath').popover({
+		  content: options['nussbaum2bath'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#symposium2').popover({
+		  content: options['symposium2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#schapiro2').popover({
+		  content: options['schapiro2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#schapiro2w').popover({
+		  content: options['schapiro2w'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#harmony2').popover({
+		  content: options['harmony2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#mcbain2').popover({
+		  content: options['mcbain2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ruggles4').popover({
+		  content: options['ruggles4'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ruggles6').popover({
+		  content: options['ruggles6'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ruggles8a').popover({
+		  content: options['ruggles8a'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ruggles8b').popover({
+		  content: options['ruggles8b'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#ruggles4ra').popover({
+		  content: options['ruggles4ra'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#wattstudio').popover({
+		  content: options['wattstudio'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#watt1').popover({
+		  content: options['watt1'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#watt2').popover({
+		  content: options['watt2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#wien2').popover({
+		  content: options['wien2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#wien2w').popover({
+		  content: options['wien2w'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#woodbridge2').popover({
+		  content: options['woodbridge2'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#woodbridgehigh').popover({
+		  content: options['woodbridgehigh'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#woodbridgemedium').popover({
+		  content: options['woodbridgemedium'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+		$('#woodbridgelow').popover({
+		  content: options['woodbridgelow'],
+		  title:popoverTitle,
+		  placement:popoverPlacement
+		});
+	}
 	
 	function getWhiteboardCounts(spreadsheet_url) {
 		
@@ -375,6 +381,9 @@ $(function() {
 			if(suite == "Double") {
 				return "schapiro2";
 			}
+			if(suite == "Walkthrough Double") {
+				return "schapiro2w";
+			}
 		}
 		else if(dorm == "Symposium") {
 			if(suite == "Double") {
@@ -416,9 +425,6 @@ $(function() {
 		}
 	}
 
-	function getSpreadsheetCell(cell) {
-		return $(cell).find("description").text();
-	}
 	
 	function loadCountsToHtml(s) {
 		
@@ -433,7 +439,7 @@ $(function() {
 		};
 		
 		var htmlToUpload = "<div class='row'> <div class='small-6 columns'> <ul class='pricing-table'> <li class='price'>Broadway</li> <li class='bullet-item'><p class='suite' id='broadway2'>Double: </p><p class='count'>{broadway2}</p></li></ul><ul class='pricing-table'><li class='price'>East Campus</li><li class='bullet-item'><p class='suite' id='ecdouble'>6th Floor Double: </p><p class='count'>{ecdouble}</p></li><li class='bullet-item'><p class='suite' id='ecflat'>2-Person Flat: </p><p class='count'>{ecflat}</p></li><li class='bullet-item'><p class='suite' id='ec4'>4-Person Townhouse: </p><p class='count'>{ec4}</p></li><li class='bullet-item'><p class='suite' id='ec5'>5-Person All-Single Suite: </p><p class='count'>{ec5}</p></li><li class='bullet-item'><p class='suite' id='ecx'>5-Person Suite w/ 1 Double: </p><p class='count'>{ecx}</p></li><li class='bullet-item'><p class='suite' id='ec6high'>6-Person All-Single Suite: </p><p class='count'>{ec6high}</p></li><li class='bullet-item'><p class='suite' id='ec6town'>6-Per All-Single Townhouse: </p><p class='count'>{ec6town}</p></li><li class='bullet-item'><p class='suite' id='ectowndouble'>6-Person Suite w/ 1 Double: </p><p class='count'>{ectowndouble}</p></li><li class='bullet-item'><p class='suite' id='ec4ra'>4-Person RA Suite: </p><p class='count'>{ectowndouble}</p></li><li class='bullet-item'><p class='suite' id='ec6ra'>6-Person RA Suite: </p><p class='count'>{ec6ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Hogan</li> <li class='bullet-item'><p class='suite' id='hogan4'>4-Person Suite: </p><p class='count'>{hogan4}</p></li> <li class='bullet-item'><p class='suite' id='hogan5'>5-Person Suite: </p><p class='count'>{hogan5}</p></li> <li class='bullet-item'><p class='suite' id='hogan6'>6-Person Suite: </p><p class='count'>{hogan6}</p></li> <li class='bullet-item'><p class='suite' id='hogan4ra'>4-Person RA Suite: </p><p class='count'>{hogan4ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Nussbaum</li> <li class='bullet-item'><p class='suite' id='nussbaum2'>Double: </p><p class='count'>{nussbaum2}</p></li> <li class='bullet-item'><p class='suite' id='nussbaum2bath'>Double w/ Bathroom: </p><p class='count'>{nussbaum2bath}</p></li></ul><ul class='pricing-table'> <li class='price'>Symposium</li> <li class='bullet-item'><p class='suite' id='symposium2'>Studio Double: </p><p class='count'>{symposium2}</p></li></ul><ul class='pricing-table'> <li class='price'>Wien</li> <li class='bullet-item'><p class='suite' id='wien2'>Double: </p><p class='count'>{wien2}</p></li> <li class='bullet-item'><p class='suite' id='wien2w'>Walkthrough Double: </p><p class='count'>{wien2w}</p></li></ul><ul class='pricing-table'> <li class='price'>Woodbridge</li> <li class='bullet-item'><p class='suite' id='woodbridge2'>2-Bedroom: </p><p class='count'>{woodbridge2}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgehigh'>High-Demand (H, K, C): </p><p class='count'>{woodbridgehigh}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgemedium'>E, F, I, J: </p><p class='count'>{woodbridgemedium}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgelow'>A, B, D, G, L: </p><p class='count'>{woodbridgelow}</p></li></ul> </div> <div class='small-6 columns'><ul class='pricing-table'> <li class='price'>Claremont</li> <li class='bullet-item'><p class='suite' id='claremont3'>3-Person Suite: </p><p class='count'>{claremont3}</p></li><li class='bullet-item'><p class='suite' id='claremont4'>4-Person Suite: </p><p class='count'>{claremont4}</p></li><li class='bullet-item'><p class='suite' id='claremont5'>5-Person Suite: </p><p class='count'>{claremont5}</p></li><li class='bullet-item'><p class='suite' id='claremont6'>6-Person Suite: </p><p class='count'>{claremont6}</p></li> <li class='bullet-item'><p class='suite' id='claremont7'>7-Person Suite: </p><p class='count'>{claremont7}</p></li></ul><ul class='pricing-table'> <li class='price'>Furnald</li> <li class='bullet-item'><p class='suite' id='furnald2'>Double: </p><p class='count'>{furnald2}</p></li></ul><ul class='pricing-table'> <li class='price'>Harmony</li> <li class='bullet-item'><p class='suite' id='harmony2'>Double: </p><p class='count'>{harmony2}</p></li></ul><ul class='pricing-table'> <li class='price'>McBain</li> <li class='bullet-item'><p class='suite' id='mcbain2'>Double: </p><p class='count'>{mcbain2}</p></li></ul>";
-		htmlToUpload += "<ul class='pricing-table'> <li class='price'>Ruggles</li> <li class='bullet-item'><p class='suite' id='ruggles4'>4-Person Suite: </p><p class='count'>{ruggles4}</p></li> <li class='bullet-item'><p class='suite' id='ruggles6'>6-Person Suite: </p><p class='count'>{ruggles6}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8a'>8-Person Suite w/ 2 Doubles: </p><p class='count'>{ruggles8a}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8b'>8-Person Suite w/ 3 Doubles: </p><p class='count'>{ruggles8b}</p></li> <li class='bullet-item'><p class='suite' id='ruggles4ra'>4-Person RA Suite: </p><p class='count'>{ruggles4ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Schapiro</li> <li class='bullet-item'><p class='suite' id='schapiro2'>Double: </p><p class='count'>{schapiro2}</p></li></ul><ul class='pricing-table'> <li class='price'>Watt</li> <li class='bullet-item'><p class='suite' id='wattstudio'>Studio Double: </p><p class='count'>{wattstudio}</p></li> <li class='bullet-item'><p class='suite' id='watt1'>1-Bedroom: </p><p class='count'>{watt1}</p></li> <li class='bullet-item'><p class='suite' id='watt2'>2-Bedroom: </p><p class='count'>{watt2}</p></li></ul> </div>";
+		htmlToUpload += "<ul class='pricing-table'> <li class='price'>Ruggles</li> <li class='bullet-item'><p class='suite' id='ruggles4'>4-Person Suite: </p><p class='count'>{ruggles4}</p></li> <li class='bullet-item'><p class='suite' id='ruggles6'>6-Person Suite: </p><p class='count'>{ruggles6}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8a'>8-Person Suite w/ 2 Doubles: </p><p class='count'>{ruggles8a}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8b'>8-Person Suite w/ 3 Doubles: </p><p class='count'>{ruggles8b}</p></li> <li class='bullet-item'><p class='suite' id='ruggles4ra'>4-Person RA Suite: </p><p class='count'>{ruggles4ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Schapiro</li> <li class='bullet-item'><p class='suite' id='schapiro2'>Double: </p><p class='count'>{schapiro2}</p></li><li class='bullet-item'><p class='suite' id='schapiro2w'>Walkthrough Double: </p><p class='count'>{schapiro2w}</p></li></ul><ul class='pricing-table'> <li class='price'>Watt</li> <li class='bullet-item'><p class='suite' id='wattstudio'>Studio Double: </p><p class='count'>{wattstudio}</p></li> <li class='bullet-item'><p class='suite' id='watt1'>1-Bedroom: </p><p class='count'>{watt1}</p></li> <li class='bullet-item'><p class='suite' id='watt2'>2-Bedroom: </p><p class='count'>{watt2}</p></li></ul> </div>";
 		htmlToUpload = htmlToUpload.supplant({broadway2:s["broadway2"], ecdouble:s["ecdouble"],ecflat:s["ecflat"],ec4:s["ec4"],
 		ec5:s["ec5"],ecx:s["ecx"],ec6high:s["ec6high"],ec6town:s["ec6town"],ectowndouble:s["ectowndouble"],
 		ec4ra:s["ec4ra"],ec6ra:s["ec6ra"],hogan4:s["hogan4"],hogan5:s["hogan5"],hogan6:s["hogan6"],
@@ -442,24 +448,23 @@ $(function() {
 		woodbridgelow:s["woodbridgelow"],claremont3:s["claremont3"],claremont4:s["claremont4"],claremont5:s["claremont5"],
 		claremont6:s["claremont6"],claremont7:s["claremont7"],furnald2:s["furnald2"],harmony2:s["harmony2"],
 		mcbain2:s["mcbain2"],ruggles4:s["ruggles4"],ruggles6:s["ruggles6"],ruggles8a:s["ruggles8a"],ruggles8b:s["ruggles8b"],ruggles4ra:s["ruggles4ra"],
-		schapiro2:s["schapiro2"],wattstudio:s["wattstudio"],watt1:s["watt1"],watt2:s["watt2"]});
+		schapiro2:s["schapiro2"],schapiro2w:s["schapiro2w"],wattstudio:s["wattstudio"],watt1:s["watt1"],watt2:s["watt2"]});
 		
 		$("#options").html(htmlToUpload);
 	}
 	
 	//get remaining rooms
 	function getRemainingRooms(floorplans_url, suites_url, rooms_url) {
-		var suite_xml = getXmlFromGoogleSpreadsheet(suites_url, true);
-		var room_xml = getXmlFromGoogleSpreadsheet(rooms_url, true);
+		var suite_xml = getXmlFromGoogleSpreadsheet(suites_url, false);
+		var room_xml = getXmlFromGoogleSpreadsheet(rooms_url, false);
 		var floorplan_xml = getXmlFromGoogleSpreadsheet(floorplans_url, false);
-		
 		var options = getOptionsBuckets();
 		//load room and suite data into hash tables
 		var roomDataHashTable = loadRoomDataIntoHashTable(room_xml);
 		var suiteDataHashTable = loadSuiteDataIntoHashTable(suite_xml);
-		//go through floorplans, look up hash table, and assign to right option
-		
-		assignOptions(options, floorplan_xml, roomDataHashTable, suiteDataHashTable); //options reference passed by value
+		var listOfRemainingRooms = storeRemainingRooms(floorplan_xml);
+		//go through floorplans, look up hash table, and assign to right option		
+		assignOptions(options, listOfRemainingRooms, roomDataHashTable, suiteDataHashTable); //options reference passed by value
 		
 		return options;
 	}
@@ -472,15 +477,310 @@ $(function() {
 		return options;
 	}
 	
+	//returns hash hash[[dorm, room]] = [roomType, misc]
 	function loadRoomDataIntoHashTable(room_xml) {
-		
+		var roomDataHashTable = new Object;
+		var dorm = "", room = "", roomType = "", misc = "";
+		$(room_xml).find("item").each(function() {
+			var cellPosition = getSpreadsheetCellPosition(this);
+			var cellContents = getSpreadsheetCell(this);
+			if(cellPosition[0] == "A") {
+				dorm = cellContents;
+			}
+			else if(cellPosition[0] == "C") {
+				room = cellContents;
+			}
+			else if(cellPosition[0] == "E") {
+				roomType = cellContents;
+			}
+			else if(cellPosition[0] == "F") {
+				misc = cellContents;
+			}
+			else if(cellPosition[0] == "G") {
+				roomDataHashTable[[dorm, room]] = [roomType, misc];	
+				dorm = room = roomType = misc = "";	
+			}
+		});
+		return roomDataHashTable;
 	}
 	
+	//returns hash hash[[dorm, suite]] = [suiteType, suiteCount]
 	function loadSuiteDataIntoHashTable(suite_xml) {
-		
+		var suiteDataHashTable = new Object;
+		var dorm = "", suiteType = "", suiteName = "", suiteCount = "";
+		$(suite_xml).find("item").each(function() {
+			var cellPosition = getSpreadsheetCellPosition(this);
+			var cellContents = getSpreadsheetCell(this);
+			if(cellPosition[0] == "A") {
+				dorm = cellContents;
+			}
+			else if(cellPosition[0] == "B") {
+				suiteType = cellContents;
+			}
+			else if(cellPosition[0] == "C") {
+				suiteName = cellContents;
+			}
+			else if(cellPosition[0] == "E") {
+				suiteCount = cellContents;
+			}
+			else if(cellPosition[0] == "F") {
+				suiteDataHashTable[[dorm, suiteName]] = [suiteType, suiteCount];	
+				dorm = suiteType = suiteName = suiteCount = "";	
+			}
+		});
+		return suiteDataHashTable;
 	}
 	
-	function assignOptions(options, floorplan_xml, roomDataHashTable, suiteDataHashTable) {
+	function assignOptions(options, remainingRooms, roomDataHashTable, suiteDataHashTable) {
+		for(var i = 0; i < remainingRooms.length; i++) {
+			dormroom = remainingRooms[i];
+			if(dormroom[1] == "320-323") {
+			}
+			loadOption(dormroom, options, roomDataHashTable, suiteDataHashTable);
+		}
+	}
+	
+	function loadOption(dormroom, options, roomDataHashTable, suiteDataHashTable) {
+		var dorm = dormroom[0];
+		var room = dormroom[1];
+		var dormType = "";
+		if(dorm == "Claremont" || dorm == "East Campus" || dorm == "Hogan" || dorm == "Ruggles") {
+			dormType = "suite";
+		}
+		else {
+			dormType = "room";
+		}
+		
+		if(dormType == "suite") {
+			var data = suiteDataHashTable[[dorm, room]]; //data expressed as [suiteType, suiteCount]
+			var suiteType = data[0];
+			var suiteCount = data[1];
+			room = " " + room;
+			if(dorm == "Claremont") {
+				if(suiteCount != "0") { //if suite count is 0 then it's an RA suite
+					if(suiteType == "3") {
+						options['claremont3'].push(room);
+					}
+					else if(suiteType == "4") {
+						options['claremont4'].push(room);
+					}
+					else if(suiteType == "5") {
+						options['claremont5'].push(room);
+					}
+					else if(suiteType == "6") {
+						options['claremont6'].push(room);
+					}
+					else if(suiteType == "7") {
+						options['claremont7'].push(room);
+					}
+				}
+			}
+			else if(dorm == "East Campus") {
+				if(suiteCount != "0") {
+					if(suiteType == "0") {
+						options['ecdouble'].push(room);
+					}
+					else if(suiteType == "flat") {
+						options['ecflat'].push(room);
+					}
+					else if(suiteType == "4") {
+						if(suiteCount == "2") {
+							options['ec4ra'].push(room);
+						}
+						else if(suiteCount == "4") {
+							options['ec4'].push(room);
+						}
+					}
+					else if(suiteType == "hr5") {
+						options['ec5'].push(room);
+					}
+					else if(suiteType == "ecx") {
+						options['ecx'].push(room);
+					}
+					else if(suiteType == "hr6") {
+						options['ec6high'].push(room);
+					}
+					else if(suiteType == "6") {
+						if(suiteCount == "4") {
+							options['ec6ra'].push(room);
+						}
+						else if(suiteCount == "6") {
+							options['ec6town'].push(room);
+						}
+					}
+					else if(suiteType == "6d") {
+						if(suiteCount == "4") {
+							options['ec6ra'].push(room);
+						}
+						else if(suiteCount == "6") {
+							options['ectowndouble'].push(room);
+						}
+					}
+				}
+			}
+			else if(dorm == "Hogan") {
+				if(suiteType == "5") {
+					options['hogan5'].push(room);
+				}
+				else if(suiteType == "6") {
+					options['hogan6'].push(room);
+				}
+				else if(suiteType == "4") {
+					if(suiteCount == "2") {
+						options['hogan4ra'].push(room);
+					}
+					else if(suiteCount == "4") {
+						options['hogan4'].push(room);
+					}
+				}
+			}
+			else if(dorm == "Ruggles") {
+				if(suiteCount != "0") {
+					if(suiteType == "4") {
+						if(suiteCount == "4") {
+							options['ruggles4'].push(room);
+						}
+						else if(suiteCount == "2") {
+							options['ruggles4ra'].push(room);
+						}
+					}
+					else if(suiteType == "6") {
+						options['ruggles6'].push(room);
+					}
+					else if(suiteType == "8dd") {
+						options['ruggles8b'].push(room);
+					}
+					else if(suiteType == "8d") {
+						options['ruggles8a'].push(room);
+					}
+				}
+			}
+		}
+		//room data data expressed as [roomType, misc]
+		else {
+			var data = roomDataHashTable[[dorm, room]];
+			var roomType = data[0];
+			var misc = data[1];
+			room = " " + room;
+			
+			if(misc.indexOf("ra") == -1) {//check if it's an RA suite
+				if(dorm == "Broadway") {
+					options['broadway2'].push(room);
+				}
+				else if(dorm == "Furnald") {
+					options['furnald2'].push(room);
+				}
+				else if(dorm == "Harmony") {
+					options['harmony2'].push(room);
+				}
+				else if(dorm == "McBain") {
+					if(misc == "shaft") {
+						options['mcbain2'].push(room+"(shaft)");
+					}
+					else {
+						options['mcbain2'].push(room);
+					}
+				}
+				else if(dorm == "Nussbaum") {
+					if(misc == "walk, bathroom") {
+						options['nussbaum2'].push(room+"(w/t with bathroom)");
+						options['nussbaum2bath'].push(room+"(w/t)");
+					}
+					else if(misc == "walk") {
+						options['nussbaum2'].push(room+"(w/t)");
+					}
+					else if(misc == "bathroom") {
+						options['nussbaum2'].push(room+"(bathroom)");
+						options['nussbaum2bath'].push(room);
+					}
+				}
+				else if(dorm == "Symposium") {
+					options['symposium2'].push(room);
+				}
+				else if(dorm == "Schapiro") {
+					if(misc == "walk") {
+						options['schapiro2w'].push(room);
+						options['schapiro2'].push(room+"(w/t)");
+					}
+					else {
+						options['schapiro2'].push(room);
+					}
+				}
+				else if(dorm == "Watt") {
+					if(misc == "studio") {
+						options['wattstudio'].push(room);
+					}
+					else if(misc == '1br') {
+						options['watt1'].push(room);
+					}
+					else if(misc == '2br') {
+						options['watt2'].push(room);
+					}
+				}
+				else if(dorm == "Wien") {
+					if(misc == "walk") {
+						options['wien2'].push(room + "(w/t)");
+						options['wien2w'].push(room);
+					}
+					else {
+						options['wien2'].push(room);
+					}
+				}
+				else if(dorm == "Woodbridge") {
+					if(misc == "2br") {
+						options['woodbridge2'].push(room);
+					}
+					//if it's of the right line
+					if(["H", "K", "C"].indexOf(room[2]) > -1) {
+						options['woodbridgehigh'].push(room);
+					}
+					else if(["E", "F", "I", "J"].indexOf(room[2]) > -1) {
+						options['woodbridgemedium'].push(room);
+					}
+					else if(["A", "B", "D", "G", "L"].indexOf(room[2]) > -1) {
+						options['woodbridgelow'].push(room);
+					}
+				}
+			}
+		}
+	}
+	
+	//returns array of form [[dormName, roomName], [dormName2, roomName2]]
+	function storeRemainingRooms(xml) {
+		var columnToDorm = getColumnToDormHashTable(xml);
+		var listOfRemainingRooms = new Array();
+		$(xml).find("item").each(function() {
+			var cellPosition = getSpreadsheetCellPosition(this);
+			if(cellPosition.length > 2 || cellPosition[1] != "1") {
+				var dormName = columnToDorm[cellPosition[0]];
+				var roomName = getSpreadsheetCell(this);
+				listOfRemainingRooms.push([dormName,roomName]);
+			}
+		});
+		return listOfRemainingRooms;
+	}
+	
+	//returns columnToDorm["A"] = "Broadway";
+	function getColumnToDormHashTable(xml) {
+		columnToDorm = new Object;
+		$(xml).find("item").each(function() {
+			var description = getSpreadsheetCellPosition(this);
+			if(description[1] == "1") {
+				columnToDorm[description[0]] = getSpreadsheetCell(this);
+			}
+			else {
+				return false;
+			}
+		});
+		return columnToDorm;
+	}
+	
+	function getSpreadsheetCellPosition(cell) {
+		return $(cell).find("title").text();
+	}
+	
+	function getSpreadsheetCell(cell) {
+		return $(cell).find("description").text();
 	}
 	
 	function getXmlFromGoogleSpreadsheet(spreadsheet_url, asynch) {
