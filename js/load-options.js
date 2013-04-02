@@ -1,216 +1,237 @@
 $(function() {
+	var whiteboardCounts = new Object; //associative array mapping dorm/suite to count
+	
 	var options = '322, 333, 340, 402, 422, 433, 439, 440, 456 322, 333, 340, 402, 422, 433, 439, 440, 456 322, 333, 340, 402, 422, 433, 439, 440, 456322, 333, 340, 402, 422, 433, 439, 440, 456';
 		
 	//gets the whiteboard counts
 	getWhiteboardCounts('https://spreadsheets.google.com/feeds/cells/0AgQ9wxO1Q6RPdDRHU3FuaVA0dVY2UkswUWdPWlRvSnc/od6/public/basic?alt=rss');
 	
 	//gets the remaining rooms
-	
+	var options = getRemainingRooms('https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDlVM1Qxamt0SHI0YktzNWZmdTFOdWc/od7/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdDl0dnNJVjFndkJNdW5GSVBoYWhQN1E/od6/public/basic?alt=rss', 'https://spreadsheets.google.com/feeds/cells/0AiffTHkoEkUDdEl4MFo0dnlWajhUYjVfMkVuaTBXUXc/od6/public/basic?alt=rss')
 	
 	//loads all the remaining room data
 	var popoverTitle = 'Remaining Options';
 	var popoverPlacement = 'top';
+
 	$('#broadway2').popover({
-	  content: options,
+	  content: options['broadway2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ecdouble').popover({
-	  content: options,
+	  content: options['ecdouble'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ecflat').popover({
-	  content: options,
+	  content: options['ecflat'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ec4').popover({
-	  content: options,
+	  content: options['ec4'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ec5').popover({
-	  content: options,
+	  content: options['ec5'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ecx').popover({
-	  content: options,
+	  content: options['ecx'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ec6town').popover({
-	  content: options,
+	  content: options['ec6town'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ec6high').popover({
-	  content: options,
+	  content: options['ec6high'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#ec6ra').popover({
+	  content: options['ec6ra'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#ec4ra').popover({
+	  content: options['ec4ra'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ectowndouble').popover({
-	  content: options,
+	  content: options['ectowndouble'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#claremont3').popover({
-	  content: options,
+	  content: options['claremont3'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#claremont4').popover({
-	  content: options,
+	  content: options['claremont4'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#claremont5').popover({
-	  content: options,
+	  content: options['claremont5'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#claremont6').popover({
-	  content: options,
+	  content: options['claremont6'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#claremont7').popover({
-	  content: options,
+	  content: options['claremont7'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#furnald2').popover({
-	  content: options,
+	  content: options['furnald2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#hogan4').popover({
-	  content: options,
+	  content: options['hogan4'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#hogan5').popover({
-	  content: options,
+	  content: options['hogan5'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#hogan6').popover({
-	  content: options,
+	  content: options['hogan6'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#hogan4ra').popover({
+	  content: options['hogan4ra'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#nussbaum2').popover({
-	  content: options,
+	  content: options['nussbaum2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#nussbaum2bath').popover({
-	  content: options,
+	  content: options['nussbaum2bath'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#symposium2').popover({
-	  content: options,
+	  content: options['symposium2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#schapiro2').popover({
-	  content: options,
+	  content: options['schapiro2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#schapiro2w').popover({
-	  content: options,
+	  content: options['schapiro2w'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#harmony2').popover({
-	  content: options,
+	  content: options['harmony2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#mcbain2').popover({
-	  content: options,
+	  content: options['mcbain2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ruggles4').popover({
-	  content: options,
+	  content: options['ruggles4'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ruggles6').popover({
-	  content: options,
+	  content: options['ruggles6'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ruggles8a').popover({
-	  content: options,
+	  content: options['ruggles8a'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#ruggles8b').popover({
-	  content: options,
+	  content: options['ruggles8b'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#ruggles4ra').popover({
+	  content: options['ruggles4ra'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#wattstudio').popover({
-	  content: options,
+	  content: options['wattstudio'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#watt1').popover({
-	  content: options,
+	  content: options['watt1'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#watt2').popover({
-	  content: options,
+	  content: options['watt2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#wien2').popover({
-	  content: options,
+	  content: options['wien2'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#wien2w').popover({
-	  content: options,
-	  title:popoverTitle,
-	  placement:popoverPlacement
-	});
-	$('#woodbridge1').popover({
-	  content: options,
+	  content: options['wien2w'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	$('#woodbridge2').popover({
-	  content: options,
+	  content: options['woodbridge2'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#woodbridgehigh').popover({
+	  content: options['woodbridgehigh'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#woodbridgemedium').popover({
+	  content: options['woodbridgemedium'],
+	  title:popoverTitle,
+	  placement:popoverPlacement
+	});
+	$('#woodbridgelow').popover({
+	  content: options['woodbridgelow'],
 	  title:popoverTitle,
 	  placement:popoverPlacement
 	});
 	
 	function getWhiteboardCounts(spreadsheet_url) {
 		
-		var xml = getXmlFromGoogleSpreadsheet(spreadsheet_url);
-		var suitesToCounts = traverseXml(xml);
+		var xml = getXmlFromGoogleSpreadsheet(spreadsheet_url, false);
+		var suitesToCounts = traverseWhiteboardXml(xml);
 		loadCountsToHtml(suitesToCounts);
 	}
-	function getXmlFromGoogleSpreadsheet(spreadsheet_url) {
-		var xml_data;
-		$.ajax({
-		    url: spreadsheet_url,
-			async: false,
-		    success: function(data) {
-		        xml_data = data;
-		    }
-		});
-		return xml_data;
-	}
-	function traverseXml(data) {
-		
-		var whiteboardCounts = new Object; //associative array mapping dorm/suite to count
+
+	function traverseWhiteboardXml(data) {
 		
 		var dorms = ["Broadway", "Claremont", "East Campus", "Furnald", "Harmony", "Hogan", "McBain", "Nussbaum", "River", "Ruggles", "Schapiro", "Symposium", "Watt", "Wien", "Woodbridge"];
 		var dormName;
@@ -425,5 +446,52 @@ $(function() {
 		
 		$("#options").html(htmlToUpload);
 	}
-
+	
+	//get remaining rooms
+	function getRemainingRooms(floorplans_url, suites_url, rooms_url) {
+		var suite_xml = getXmlFromGoogleSpreadsheet(suites_url, true);
+		var room_xml = getXmlFromGoogleSpreadsheet(rooms_url, true);
+		var floorplan_xml = getXmlFromGoogleSpreadsheet(floorplans_url, false);
+		
+		var options = getOptionsBuckets();
+		//load room and suite data into hash tables
+		var roomDataHashTable = loadRoomDataIntoHashTable(room_xml);
+		var suiteDataHashTable = loadSuiteDataIntoHashTable(suite_xml);
+		//go through floorplans, look up hash table, and assign to right option
+		
+		assignOptions(options, floorplan_xml, roomDataHashTable, suiteDataHashTable); //options reference passed by value
+		
+		return options;
+	}
+	
+	function getOptionsBuckets() {
+		var options = whiteboardCounts;
+		for(var key in options) {
+			options[key] = new Array();
+		}
+		return options;
+	}
+	
+	function loadRoomDataIntoHashTable(room_xml) {
+		
+	}
+	
+	function loadSuiteDataIntoHashTable(suite_xml) {
+		
+	}
+	
+	function assignOptions(options, floorplan_xml, roomDataHashTable, suiteDataHashTable) {
+	}
+	
+	function getXmlFromGoogleSpreadsheet(spreadsheet_url, asynch) {
+		var xml_data;
+		$.ajax({
+		    url: spreadsheet_url,
+			async: asynch,
+		    success: function(data) {
+		        xml_data = data;
+		    }
+		});
+		return xml_data;
+	}
 });
