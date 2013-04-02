@@ -22,6 +22,10 @@
 	margin-right: auto;
 }
 
+#loading {
+	background-image: url('../loading.gif');
+}
+
 .pricing-table * {
 	line-height: .24;
 }
