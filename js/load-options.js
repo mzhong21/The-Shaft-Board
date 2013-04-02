@@ -4,18 +4,13 @@ $(function() {
 	//gets the whiteboard counts
 	getWhiteboardCounts('https://spreadsheets.google.com/feeds/cells/0AgQ9wxO1Q6RPdDRHU3FuaVA0dVY2UkswUWdPWlRvSnc/od6/public/basic?alt=rss');
 	
-	$(myvar).find("item").each(function() {
-		var description = $(this).find("description").text();
-		alert(description);
-	});
-	
 	//gets the remaining rooms
 	
 	
 	//loads all the remaining room data
 	var popoverTitle = 'Remaining Options';
 	var popoverPlacement = 'top';
-	$('#broadwaydouble').popover({
+	$('#broadway2').popover({
 	  content: options,
 	  title:popoverTitle,
 	  placement:popoverPlacement
@@ -237,7 +232,6 @@ $(function() {
 			}
 			else if(positionInSpreadsheet == 2) {
 				suiteCount = description;
-				alert(suiteCount);
 				whiteboardCounts[getDormSuite(dormName, suiteName)] = suiteCount;
 				positionInSpreadsheet = 0;
 			}
@@ -284,19 +278,16 @@ $(function() {
 				return "ec5";
 			}
 			else if(suite == "5-Person Suite w/ 1 Double") {
-				return "ecflat";
+				return "ecx";
 			}
 			else if(suite == "6-Person All-Single Suite") {
-				return "ecflat";
+				return "ec6high";
 			}
 			else if(suite == "6-Per All-Single Townhouse") {
-				return "ecflat";
+				return "ec6town";
 			}
 			else if(suite == "6-Person Suite w/ 1 Double") {
-				return "ecflat";
-			}
-			else if(suite == "6-Person All-Single Suite") {
-				return "ecflat";
+				return "ectowndouble";
 			}
 			else if(suite == "6-Person RA Townhouse") {
 				return "ec6ra";
@@ -373,10 +364,10 @@ $(function() {
 			if(suite == "Studio Double") {
 				return "wattstudio";
 			}
-			else if(studio == "1-Bedroom") {
+			else if(suite == "1-Bedroom") {
 				return "watt1";
 			}
-			else if(studio == "2-Bedroom") {
+			else if(suite == "2-Bedroom") {
 				return "watt2";
 			}
 		}
@@ -420,178 +411,19 @@ $(function() {
 		    );
 		};
 		
-		String htmlToUpload = "<div class='row'>
-		  <div class='small-6 columns'>
-		  		<ul class='pricing-table'>
-				  <li class='price'>Broadway</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='broadwaydouble'>Double: </p>
-					<p class='count'>{broadwaydouble}</p></li>
-				</ul>	
-				<ul class='pricing-table'>
-					<li class='price'>East Campus</li>
-					<li class='bullet-item'>
-					<p class='suite' id='ecdouble'>6th Floor Double: </p>
-					<p class='count'>{ecdouble}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ecflat'>2-Person Flat: </p>
-					<p class='count'>{ecflat}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec4'>4-Person Townhouse: </p>
-					<p class='count'>{ec4}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec5'>5-Person All-Single Suite: </p>
-					<p class='count'>{ec5}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ecx'>5-Person Suite w/ 1 Double: </p>
-					<p class='count'>{ecx}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec6high'>6-Person All-Single Suite: </p>
-					<p class='count'>{ec6high}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec6town'>6-Per All-Single Townhouse: </p>
-					<p class='count'>{ec6town}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ectowndouble'>6-Person Suite w/ 1 Double: </p>
-					<p class='count'>{ectowndouble}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec4ra'>4-Person RA Suite: </p>
-					<p class='count'>{ectowndouble}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='ec6ra'>6-Person RA Suite: </p>
-					<p class='count'>{ec6ra}</p></li>	
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Hogan</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='hogan4'>4-Person Suite: </p>
-					<p class='count'>{hogan4}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='hogan5'>5-Person Suite: </p>
-					<p class='count'>{hogan5}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='hogan6'>6-Person Suite: </p>
-					<p class='count'>{hogan6}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Nussbaum</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='nussbaum2'>Double: </p>
-					<p class='count'>{nussbaum2}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='nussbaum2bath'>Double w/ Bathroom: </p>
-					<p class='count'>{nussbaum2bath}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Symposium</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='symposium2'>Studio Double: </p>
-					<p class='count'>{symposium2}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Wien</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='wien2'>Double: </p>
-					<p class='count'>{wien2}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='wien2w'>Walkthrough Double: </p>
-					<p class='count'>{wien2w}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Woodbridge</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='woodbridge2'>2-Bedroom: </p>
-					<p class='count'>{woodbridge2}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='woodbridgehigh'>High-Demand (H, K, C): </p>
-					<p class='count'>{woodbridgehigh}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='woodbridgemedium'>E, F, I, J: </p>
-					<p class='count'>{woodbridgemedium}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='woodbridgelow'>A, B, D, G, L: </p>
-					<p class='count'>{woodbridgelow}</p></li>
-				</ul>
-		  </div>
-		  <div class='small-6 columns'>
-				<ul class='pricing-table'>
-				  <li class='price'>Claremont</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='claremont3'>3-Person Suite: </p>
-					<p class='count'>{claremont3}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='claremont4'>4-Person Suite: </p>
-					<p class='count'>{claremont4}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='claremont5'>5-Person Suite: </p>
-					<p class='count'>{claremont5}</p></li>
-					<li class='bullet-item'>
-					<p class='suite' id='claremont6'>6-Person Suite: </p>
-					<p class='count'>{claremont6}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='claremont7'>7-Person Suite: </p>
-					<p class='count'>{claremont7}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Furnald</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='furnald2'>Double: </p>
-					<p class='count'>{furnald2}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Harmony</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='harmony2'>Double: </p>
-					<p class='count'>{harmony2}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>McBain</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='mcbain2'>Double: </p>
-					<p class='count'>{mcbain2}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Ruggles</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='ruggles4'>4-Person Suite: </p>
-					<p class='count'>{ruggles4}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='ruggles6'>6-Person Suite: </p>
-					<p class='count'>{ruggles6}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='ruggles8a'>8-Person Suite w/ 2 Doubles: </p>
-					<p class='count'>{ruggles8a}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='ruggles8b'>8-Person Suite w/ 3 Doubles: </p>
-					<p class='count'>{ruggles8b}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='ruggles4ra'>4-Person RA Suite: </p>
-					<p class='count'>{ruggles4ra}</p></li>	
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Schapiro</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='schapiro2'>Double: </p>
-					<p class='count'>{schapiro2}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='schapiro2wt'>Walkthrough Double: </p>
-					<p class='count'>{schapiro2w}</p></li>
-				</ul>
-				<ul class='pricing-table'>
-				  <li class='price'>Watt</li>
-				  <li class='bullet-item'>
-					<p class='suite' id='wattstudio'>Studio Double: </p>
-					<p class='count'>{wattstudio}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='watt1'>1-Bedroom: </p>
-					<p class='count'>{watt1}</p></li>
-				  <li class='bullet-item'>
-					<p class='suite' id='watt2'>2-Bedroom: </p>
-					<p class='count'>{watt2}</p></li>
-				</ul>
-		  </div>".supplant({})
+		var htmlToUpload = "<div class='row'> <div class='small-6 columns'> <ul class='pricing-table'> <li class='price'>Broadway</li> <li class='bullet-item'><p class='suite' id='broadway2'>Double: </p><p class='count'>{broadway2}</p></li></ul><ul class='pricing-table'><li class='price'>East Campus</li><li class='bullet-item'><p class='suite' id='ecdouble'>6th Floor Double: </p><p class='count'>{ecdouble}</p></li><li class='bullet-item'><p class='suite' id='ecflat'>2-Person Flat: </p><p class='count'>{ecflat}</p></li><li class='bullet-item'><p class='suite' id='ec4'>4-Person Townhouse: </p><p class='count'>{ec4}</p></li><li class='bullet-item'><p class='suite' id='ec5'>5-Person All-Single Suite: </p><p class='count'>{ec5}</p></li><li class='bullet-item'><p class='suite' id='ecx'>5-Person Suite w/ 1 Double: </p><p class='count'>{ecx}</p></li><li class='bullet-item'><p class='suite' id='ec6high'>6-Person All-Single Suite: </p><p class='count'>{ec6high}</p></li><li class='bullet-item'><p class='suite' id='ec6town'>6-Per All-Single Townhouse: </p><p class='count'>{ec6town}</p></li><li class='bullet-item'><p class='suite' id='ectowndouble'>6-Person Suite w/ 1 Double: </p><p class='count'>{ectowndouble}</p></li><li class='bullet-item'><p class='suite' id='ec4ra'>4-Person RA Suite: </p><p class='count'>{ectowndouble}</p></li><li class='bullet-item'><p class='suite' id='ec6ra'>6-Person RA Suite: </p><p class='count'>{ec6ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Hogan</li> <li class='bullet-item'><p class='suite' id='hogan4'>4-Person Suite: </p><p class='count'>{hogan4}</p></li> <li class='bullet-item'><p class='suite' id='hogan5'>5-Person Suite: </p><p class='count'>{hogan5}</p></li> <li class='bullet-item'><p class='suite' id='hogan6'>6-Person Suite: </p><p class='count'>{hogan6}</p></li> <li class='bullet-item'><p class='suite' id='hogan4ra'>4-Person RA Suite: </p><p class='count'>{hogan4ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Nussbaum</li> <li class='bullet-item'><p class='suite' id='nussbaum2'>Double: </p><p class='count'>{nussbaum2}</p></li> <li class='bullet-item'><p class='suite' id='nussbaum2bath'>Double w/ Bathroom: </p><p class='count'>{nussbaum2bath}</p></li></ul><ul class='pricing-table'> <li class='price'>Symposium</li> <li class='bullet-item'><p class='suite' id='symposium2'>Studio Double: </p><p class='count'>{symposium2}</p></li></ul><ul class='pricing-table'> <li class='price'>Wien</li> <li class='bullet-item'><p class='suite' id='wien2'>Double: </p><p class='count'>{wien2}</p></li> <li class='bullet-item'><p class='suite' id='wien2w'>Walkthrough Double: </p><p class='count'>{wien2w}</p></li></ul><ul class='pricing-table'> <li class='price'>Woodbridge</li> <li class='bullet-item'><p class='suite' id='woodbridge2'>2-Bedroom: </p><p class='count'>{woodbridge2}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgehigh'>High-Demand (H, K, C): </p><p class='count'>{woodbridgehigh}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgemedium'>E, F, I, J: </p><p class='count'>{woodbridgemedium}</p></li> <li class='bullet-item'><p class='suite' id='woodbridgelow'>A, B, D, G, L: </p><p class='count'>{woodbridgelow}</p></li></ul> </div> <div class='small-6 columns'><ul class='pricing-table'> <li class='price'>Claremont</li> <li class='bullet-item'><p class='suite' id='claremont3'>3-Person Suite: </p><p class='count'>{claremont3}</p></li><li class='bullet-item'><p class='suite' id='claremont4'>4-Person Suite: </p><p class='count'>{claremont4}</p></li><li class='bullet-item'><p class='suite' id='claremont5'>5-Person Suite: </p><p class='count'>{claremont5}</p></li><li class='bullet-item'><p class='suite' id='claremont6'>6-Person Suite: </p><p class='count'>{claremont6}</p></li> <li class='bullet-item'><p class='suite' id='claremont7'>7-Person Suite: </p><p class='count'>{claremont7}</p></li></ul><ul class='pricing-table'> <li class='price'>Furnald</li> <li class='bullet-item'><p class='suite' id='furnald2'>Double: </p><p class='count'>{furnald2}</p></li></ul><ul class='pricing-table'> <li class='price'>Harmony</li> <li class='bullet-item'><p class='suite' id='harmony2'>Double: </p><p class='count'>{harmony2}</p></li></ul><ul class='pricing-table'> <li class='price'>McBain</li> <li class='bullet-item'><p class='suite' id='mcbain2'>Double: </p><p class='count'>{mcbain2}</p></li></ul>";
+		htmlToUpload += "<ul class='pricing-table'> <li class='price'>Ruggles</li> <li class='bullet-item'><p class='suite' id='ruggles4'>4-Person Suite: </p><p class='count'>{ruggles4}</p></li> <li class='bullet-item'><p class='suite' id='ruggles6'>6-Person Suite: </p><p class='count'>{ruggles6}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8a'>8-Person Suite w/ 2 Doubles: </p><p class='count'>{ruggles8a}</p></li> <li class='bullet-item'><p class='suite' id='ruggles8b'>8-Person Suite w/ 3 Doubles: </p><p class='count'>{ruggles8b}</p></li> <li class='bullet-item'><p class='suite' id='ruggles4ra'>4-Person RA Suite: </p><p class='count'>{ruggles4ra}</p></li></ul><ul class='pricing-table'> <li class='price'>Schapiro</li> <li class='bullet-item'><p class='suite' id='schapiro2'>Double: </p><p class='count'>{schapiro2}</p></li></ul><ul class='pricing-table'> <li class='price'>Watt</li> <li class='bullet-item'><p class='suite' id='wattstudio'>Studio Double: </p><p class='count'>{wattstudio}</p></li> <li class='bullet-item'><p class='suite' id='watt1'>1-Bedroom: </p><p class='count'>{watt1}</p></li> <li class='bullet-item'><p class='suite' id='watt2'>2-Bedroom: </p><p class='count'>{watt2}</p></li></ul> </div>";
+		htmlToUpload = htmlToUpload.supplant({broadway2:s["broadway2"], ecdouble:s["ecdouble"],ecflat:s["ecflat"],ec4:s["ec4"],
+		ec5:s["ec5"],ecx:s["ecx"],ec6high:s["ec6high"],ec6town:s["ec6town"],ectowndouble:s["ectowndouble"],
+		ec4ra:s["ec4ra"],ec6ra:s["ec6ra"],hogan4:s["hogan4"],hogan5:s["hogan5"],hogan6:s["hogan6"],
+		hogan4ra:s["hogan4ra"],nussbaum2:s["nussbaum2"],nussbaum2bath:s["nussbaum2bath"],symposium2:s["symposium2"],wien2:s["wien2"],
+		wien2w:s["wien2w"],woodbridge2:s["woodbridge2"],woodbridgehigh:s["woodbridgehigh"],woodbridgemedium:s["woodbridgemedium"],
+		woodbridgelow:s["woodbridgelow"],claremont3:s["claremont3"],claremont4:s["claremont4"],claremont5:s["claremont5"],
+		claremont6:s["claremont6"],claremont7:s["claremont7"],furnald2:s["furnald2"],harmony2:s["harmony2"],
+		mcbain2:s["mcbain2"],ruggles4:s["ruggles4"],ruggles6:s["ruggles6"],ruggles8a:s["ruggles8a"],ruggles8b:s["ruggles8b"],ruggles4ra:s["ruggles4ra"],
+		schapiro2:s["schapiro2"],wattstudio:s["wattstudio"],watt1:s["watt1"],watt2:s["watt2"]});
 		
-		$("#options").html("<div class='row'> <div class='small-6 columns'> <ul class='pricing-table'> <li class='price'>Broadway</li> <li class='bullet-item'><p class='suite' id='broadwaydouble'>Double: </p><p class='count'>38</p></li></ul><ul class='pricing-table'><li class='price'>East Campus</li><li class='bullet-item'><p class='suite' id='ecdouble'>6th Floor Double: </p><p class='count'>8</p></li><li class='bullet-item'><p class='suite' id='ecflat'>2-Person Flat: </p><p class='count'>24</p></li><li class='bullet-item'><p class='suite' id='ec4'>4-Person Townhouse: </p><p class='count'>7</p></li><li class='bullet-item'><p class='suite' id='ec5'>5-Person All-Single Suite: </p><p class='count'>7</p></li><li class='bullet-item'><p class='suite' id='ecx'>5-Person Suite w/ 1 Double: </p><p class='count'>56</p></li><li class='bullet-item'><p class='suite' id='ec6high'>6-Person All-Single Suite: </p><p class='count'>6</p></li><li class='bullet-item'><p class='suite' id='ec6town'>6-Per All-Single Townhouse: </p><p class='count'>22</p></li><li class='bullet-item'><p class='suite' id='ectowndouble'>6-Person Suite w/ 1 Double: </p><p class='count'>6</p></li></ul><ul class='pricing-table'> <li class='price'>Hogan</li> <li class='bullet-item'><p class='suite' id='hogan4'>4-Person Suite: </p><p class='count'>12</p></li> <li class='bullet-item'><p class='suite' id='hogan5'>5-Person Suite: </p><p class='count'>10</p></li> <li class='bullet-item'><p class='suite' id='hogan6'>6-Person Suite: </p><p class='count'>1</p></li></ul><ul class='pricing-table'> <li class='price'>Nussbaum</li> <li class='bullet-item'><p class='suite' id='nussbaum2'>Double: </p><p class='count'>50</p></li> <li class='bullet-item'><p class='suite' id='nussbaum2pb'>Dbl w/ Private Bathroom: </p><p class='count'>5</p></li> <li class='bullet-item'><p class='suite' id='nussbaum2wtpb'>W/T Dbl w/ Private Bathroom: </p><p class='count'>8</p></li> <li class='bullet-item'><p class='suite' id='nussbaum2spb'>Dbl w/ Semi-Priv Bathroom: </p><p class='count'>15</p></li></ul><ul class='pricing-table'> <li class='price'>Symposium</li> <li class='bullet-item'><p class='suite' id='symposium2'>Studio Double: </p><p class='count'>8</p></li></ul><ul class='pricing-table'> <li class='price'>Wien</li> <li class='bullet-item'><p class='suite' id='wien2'>Double: </p><p class='count'>18</p></li> <li class='bullet-item'><p class='suite' id='wien2wt'>Walkthrough Double: </p><p class='count'>28</p></li></ul><ul class='pricing-table'> <li class='price'>Woodbridge</li> <li class='bullet-item'><p class='suite' id='woodbridge1'>1-Bedroom: </p><p class='count'>75</p></li> <li class='bullet-item'><p class='suite' id='woodbridge2'>2-Bedroom: </p><p class='count'>3</p></li></ul> </div> <div class='small-6 columns'><ul class='pricing-table'> <li class='price'>Claremont</li> <li class='bullet-item'><p class='suite' id='claremont3'>3-Person Suite: </p><p class='count'>3</p></li><li class='bullet-item'><p class='suite' id='claremont4'>4-Person Suite: </p><p class='count'>5</p></li><li class='bullet-item'><p class='suite' id='claremont5'>5-Person Suite: </p><p class='count'>1</p></li><li class='bullet-item'><p class='suite' id='claremont6'>6-Person Suite: </p><p class='count'>1</p></li> <li class='bullet-item'><p class='suite' id='claremont7'>7-Person Suite: </p><p class='count'>10</p></li></ul><ul class='pricing-table'> <li class='price'>Furnald</li> <li class='bullet-item'><p class='suite' id='furnald2'>Double: </p><p class='count'>1</p></li></ul><ul class='pricing-table'> <li class='price'>Harmony</li> <li class='bullet-item'><p class='suite' id='harmony2'>Double: </p><p class='count'>1</p></li></ul><ul class='pricing-table'> <li class='price'>McBain</li> <li class='bullet-item'><p class='suite' id='mcbain2'>Double: </p><p class='count'>173</p></li></ul><ul class='pricing-table'> <li class='price'>Ruggles</li> <li class='bullet-item'><p class='suite' id='ruggles4'>4-Person Suite: </p><p class='count'>4</p></li> <li class='bullet-item'><p class='suite' id='ruggles6'>6-Person Suite: </p><p class='count'>8</p></li> <li class='bullet-item'><p class='suite' id='ruggles8a'>8-Person Suite w/ 2 Doubles: </p><p class='count'>2</p></li> <li class='bullet-item'><p class='suite' id='ruggles8b'>8-Person Suite w/ 3 Doubles: </p><p class='count'>12</p></li></ul><ul class='pricing-table'> <li class='price'>Schapiro</li> <li class='bullet-item'><p class='suite' id='schapiro2'>Double: </p><p class='count'>64</p></li> <li class='bullet-item'><p class='suite' id='schapiro2wt'>Walkthrough Double: </p><p class='count'>29</p></li></ul><ul class='pricing-table'> <li class='price'>Watt</li> <li class='bullet-item'><p class='suite' id='wattstudio'>Studio Double: </p><p class='count'>53</p></li> <li class='bullet-item'><p class='suite' id='watt1'>1-Bedroom: </p><p class='count'>12</p></li> <li class='bullet-item'><p class='suite' id='watt2'>2-Bedroom: </p><p class='count'>11</p></li></ul> </div>");
+		$("#options").html(htmlToUpload);
 	}
 
 });
