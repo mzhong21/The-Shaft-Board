@@ -1,23 +1,24 @@
 .container {
-	width:432px;
-	min-height: 500px;
+	width:100%;
+	min-height: 700px;
 	border-style:solid;
 	border-color:#e6e6e6;
 	border-width: 1px;
 	background: #FFF9F0;
-	-webkit-box-shadow: 3px 5px 7px rgba(50, 50, 50, 0.65);
-	-moz-box-shadow:    3px 5px 7px rgba(50, 50, 50, 0.65);
-	box-shadow:         3px 5px 7px rgba(50, 50, 50, 0.65);
+	-webkit-box-shadow: 3px 5px 8px rgba(50, 50, 50, 0.65);
+	-moz-box-shadow:    3px 5px 8px rgba(50, 50, 50, 0.65);
+	box-shadow:         3px 5px 8px rgba(50, 50, 50, 0.65);
 }
 
 #header {
-	width:210px;
+	width:205px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 #subheader {
 	width:320px;
+	font-size:.85em;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -38,7 +39,7 @@
 }
 
 .pricing-table * {
-	line-height: .24;
+	line-height: .22;
 }
 
 .popover-content {
@@ -68,11 +69,11 @@
 
 @media only screen
 .row .column, .row .columns {
-	padding: .6em;
+	padding: .15em;
 }
 
 .row .column, .row .columns {
-	padding: .38em;
+	padding: .18em;
 }
 
 .count {
